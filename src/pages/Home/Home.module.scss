@@ -1,0 +1,29 @@
+@import '../../global.scss';
+
+.wrapper{
+    width: 90%;
+    margin:20vh auto;
+    text-align: center;
+
+    .image{
+        width: 100%;
+        margin-bottom: 5vh;
+    }
+    .svg{
+        width: 70%;
+    }
+}
+
+@media (min-width: $l) {
+    .wrapper{
+        width: 50%;
+        margin:10vh auto;
+        text-align: center;
+    
+        .svg{
+            width: 50%;
+        }
+
+    }
+}
+

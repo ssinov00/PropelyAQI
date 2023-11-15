@@ -1,0 +1,54 @@
+@import '../../global.scss';
+
+.back{
+    padding: 1em 1em 0 1em;
+}
+
+.wrapper{
+    width: 90%;
+    margin: 5vh auto;
+    text-align: center;
+    display: grid;
+
+    .currentInfo{
+        display: inline-grid;
+    }
+    
+    .historyInfo{
+        margin: 5vh auto;
+
+        .chartType{ 
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 1em;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .chart{
+            display: inline-grid;
+            width: 90%;
+            margin: 5vh auto;
+            text-align: center;
+        }
+    }
+}
+
+
+@media (min-width: $l) {
+    .back{
+        padding: 2em 2em 0 2em;
+    }
+    .wrapper{
+        grid-template-columns: 1fr 1fr; 
+        width: 70%;
+    }
+    .currentInfo{
+        display: block;
+        margin: auto;
+    }
+    .historyInfo{
+        width: 90%;
+        margin: 0 auto;
+    }
+}

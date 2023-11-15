@@ -1,0 +1,45 @@
+@import '../../global.scss';
+
+.button {
+    border: none;
+    border-radius: $radius;
+    padding: 1em;
+    cursor: pointer;
+    margin-top: 1.5em;
+  }
+  
+  .primary {
+    background-color: $primary-color;
+    color: #ffffff;
+
+    &:disabled {
+      background-color: $disabled-color;
+    }
+  }
+  
+  .secondary {
+    background-color: $secondary-color;
+    color: $primary-color;
+  }
+  
+  .outlined {
+    border: 1px solid $primary-color;
+    background-color: $secondary-color;
+    color: $primary-color;
+
+    &:hover {
+      background-color: $primary-color;
+      color: $tertiary-color;
+    }
+  }
+  
+  .text {
+    background-color: transparent;
+    color: $primary-color;
+  }
+
+  .multiSelect{
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 1em;
+  }

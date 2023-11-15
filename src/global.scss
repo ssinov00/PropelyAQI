@@ -1,0 +1,32 @@
+//Theme variables
+$secondary-color: #F2EEFC;
+$primary-color: #2F113D;
+$tertiary-color: #FFF;
+$disabled-color: #6a5c70;
+$radius: 0.3125em;
+
+//Media brakepoints
+$xs: 400px;
+$s: 700px;
+$m: 1000px;
+$l: 1100px;
+$xl: 1200px;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $secondary-color;
+}
+
+h1, h2, h3, p {
+  margin:0;
+} 
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
