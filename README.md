@@ -14,6 +14,13 @@ Once those were finished I created the two views we see in the app (Home & Locat
 Then I added some mock data and styled everything.
 And finally I did the data fetching and improved what I had time to improve.
 
+#### Tech used
+
+1. React
+2. Typescript
+3. React Query
+4. CSS modules with sass
+
 Overall it took me about 7h to do this.
 
 ## Bonus
