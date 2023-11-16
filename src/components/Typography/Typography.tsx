@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Typography.module.scss';
 import { TypographyProps } from 'global';
 
