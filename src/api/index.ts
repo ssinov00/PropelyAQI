@@ -32,18 +32,6 @@ export const useFetchCurrentStationData = (currentStation: string) => {
 
 };
 
-export const useFetchDailyData = (currentStation: string, dateFrom: string, dateTo: string, format: string, airComponent: string) => {
-  const { data, isLoading, error } = useGetData(`/agg/2/${dateFrom}/${dateTo}/${currentStation}?components=PM10;PM2.5;CO;NO2`);
-  const transformedData = data ? createChartDataArray(data, format, airComponent) : [];
-
-
-  return {
-    dailyData: transformedData,
-    isLoading,
-    error,
-  };
-};
-
 export const useFetchChartData = (meantype: number, currentStation: string, dateFrom: string, dateTo: string, dateFormat: string, airComponent: string) => {
   const { data, isLoading, error } = useGetData(`/agg/${meantype}/${dateFrom}/${dateTo}/${currentStation}?components=PM10;PM2.5;CO;NO2`);
   const transformedData = data ? createChartDataArray(data, dateFormat, airComponent) : [];
