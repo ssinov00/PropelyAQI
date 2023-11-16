@@ -1,5 +1,5 @@
-import { useFetchDailyData, useFetchHourlyData } from "api";
-import { DATE_FROM, DATE_TO } from "api/helpers";
+import { useFetchChartData } from "api";
+import { DATE_FROM, DATE_TO, DAILY_FORMAT, HOURLY_FORMAT } from "api/helpers";
 import { ChartData } from "global";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -9,17 +9,21 @@ export default function useChart() {
   const [chartType, setChartType] = useState<string>('Daily');
   const [airComponent, setAirComponent] = useState<string>('AQI');
   const [chartData, setChartData] = useState<ChartData>([]);
-
-  const { hourlyData } = useFetchHourlyData((locationName as string), DATE_FROM, DATE_TO, "DD.MM h:mm a", airComponent);
-  const { dailyData } = useFetchDailyData((locationName as string), DATE_FROM, DATE_TO, "MMM Do", airComponent);
+  const [meantype, setMeantype] = useState<number>(2);
+  const [dateFormat, setDateFormat] = useState<string>(DAILY_FORMAT);
+  const { chartDataAPI } = useFetchChartData(meantype, (locationName as string), DATE_FROM, DATE_TO, dateFormat, airComponent);
 
   useEffect(() => {
     if (chartType === 'Daily') {
-      setChartData(dailyData as ChartData);
+      setMeantype(2);
+      setDateFormat(DAILY_FORMAT);
+      setChartData(chartDataAPI as ChartData);
     } else {
-      setChartData(hourlyData as ChartData);
+      setMeantype(1);
+      setDateFormat(HOURLY_FORMAT);
+      setChartData(chartDataAPI as ChartData);
     }
-  }, [chartType, dailyData, hourlyData]);
+  }, [chartType, chartDataAPI]);
 
   const handleMultiSelectChangeChartType = (selectedOption: string) => {
     setChartType(selectedOption);

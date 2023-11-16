@@ -44,12 +44,12 @@ export const useFetchDailyData = (currentStation: string, dateFrom: string, date
   };
 };
 
-export const useFetchHourlyData = (currentStation: string, dateFrom: string, dateTo: string, format: string, airComponent: string) => {
-  const { data, isLoading, error } = useGetData(`/agg/1/${dateFrom}/${dateTo}/${currentStation}?components=PM10;PM2.5;CO;NO2`);
-  const transformedData = data ? createChartDataArray(data, format, airComponent) : [];
+export const useFetchChartData = (meantype: number, currentStation: string, dateFrom: string, dateTo: string, dateFormat: string, airComponent: string) => {
+  const { data, isLoading, error } = useGetData(`/agg/${meantype}/${dateFrom}/${dateTo}/${currentStation}?components=PM10;PM2.5;CO;NO2`);
+  const transformedData = data ? createChartDataArray(data, dateFormat, airComponent) : [];
 
   return {
-    hourlyData: transformedData,
+    chartDataAPI: transformedData,
     isLoading,
     error,
   };
